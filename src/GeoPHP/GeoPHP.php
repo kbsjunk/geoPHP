@@ -117,28 +117,28 @@ class GeoPHP
 
   static function getAdapterMap() {
     return array (
-      'wkt' =>  'WKT',
-      'ewkt' => 'EWKT',
-      'wkb' =>  'WKB',
-      'ewkb' => 'EWKB',
-      'json' => 'GeoJSON',
-      'geojson' => 'GeoJSON',
-      'kml' =>  'KML',
-      'gpx' =>  'GPX',
-      'georss' => 'GeoRSS',
+      'wkt'            => 'WKT',
+      'ewkt'           => 'EWKT',
+      'wkb'            => 'WKB',
+      'ewkb'           => 'EWKB',
+      'json'           => 'GeoJSON',
+      'geojson'        => 'GeoJSON',
+      'kml'            => 'KML',
+      'gpx'            => 'GPX',
+      'georss'         => 'GeoRSS',
       'google_geocode' => 'GoogleGeocode',
-      'geohash' => 'GeoHash',
+      'geohash'        => 'GeoHash',
     );
   }
 
   static function geometryList() {
     return array(
-      'point' => 'Point',
-      'linestring' => 'LineString',
-      'polygon' => 'Polygon',
-      'multipoint' => 'MultiPoint',
-      'multilinestring' => 'MultiLineString',
-      'multipolygon' => 'MultiPolygon',
+      'point'              => 'Point',
+      'linestring'         => 'LineString',
+      'polygon'            => 'Polygon',
+      'multipoint'         => 'MultiPoint',
+      'multilinestring'    => 'MultiLineString',
+      'multipolygon'       => 'MultiPolygon',
       'geometrycollection' => 'GeometryCollection',
     );
   }
