@@ -105,6 +105,11 @@ abstract class Geometry
 
   // Public: Aliases
   // ---------------
+
+  public function reduce() {
+    return GeoPHP::geometryReduce($this);
+  }
+
   public function getCentroid() {
     return $this->centroid();
   }
