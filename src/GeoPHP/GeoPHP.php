@@ -85,6 +85,7 @@ class GeoPHP
       if (!$detected) {
         return FALSE;
       }
+
       
       $format = explode(':', $detected);
       $type = array_shift($format);
@@ -133,13 +134,13 @@ class GeoPHP
 
   static function geometryList() {
     return array(
-      'point'              => 'GeoPHP\\Geometry\\Point',
-      'linestring'         => 'GeoPHP\\Geometry\\LineString',
-      'polygon'            => 'GeoPHP\\Geometry\\Polygon',
-      'multipoint'         => 'GeoPHP\\Geometry\\MultiPoint',
-      'multilinestring'    => 'GeoPHP\\Geometry\\MultiLineString',
-      'multipolygon'       => 'GeoPHP\\Geometry\\MultiPolygon',
-      'geometrycollection' => 'GeoPHP\\Geometry\\GeometryCollection',
+      'point'              => 'Point',
+      'linestring'         => 'LineString',
+      'polygon'            => 'Polygon',
+      'multipoint'         => 'MultiPoint',
+      'multilinestring'    => 'MultiLineString',
+      'multipolygon'       => 'MultiPolygon',
+      'geometrycollection' => 'GeometryCollection',
     );
   }
 
