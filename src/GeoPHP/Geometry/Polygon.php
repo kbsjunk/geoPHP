@@ -1,5 +1,9 @@
 <?php
 
+namespace GeoPHP\Geometry;
+
+use GeoPHP\GeoPHP;
+
 /**
  * Polygon: A polygon is a plane figure that is bounded by a closed path, 
  * composed of a finite sequence of straight line segments

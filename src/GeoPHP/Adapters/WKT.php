@@ -1,4 +1,20 @@
 <?php
+
+namespace GeoPHP\Adapters;
+
+use GeoPHP\GeoPHP;
+use GeoPHP\Geometry\Geometry;
+use GeoPHP\Geometry\GeometryCollection;
+use GeoPHP\Geometry\Point;
+use GeoPHP\Geometry\MultiPoint;
+use GeoPHP\Geometry\Polygon;
+use GeoPHP\Geometry\MultiPolygon;
+use GeoPHP\Geometry\LineString;
+use GeoPHP\Geometry\MultiLineString;
+
+use GEOSWKTReader;
+use GEOSWKTWriter;
+
 /**
  * WKT (Well Known Text) Adapter
  */
@@ -27,22 +43,22 @@ class WKT extends GeoAdapter
     }
 
     // If geos is installed, then we take a shortcut and let it parse the WKT
-    if (geoPHP::geosInstalled()) {
+    if (GeoPHP::geosInstalled()) {
       $reader = new GEOSWKTReader();
       if ($srid) {
-        $geom = geoPHP::geosToGeometry($reader->read($wkt));
+        $geom = GeoPHP::geosToGeometry($reader->read($wkt));
         $geom->setSRID($srid);
         return $geom;
       }
       else {
-        return geoPHP::geosToGeometry($reader->read($wkt));
+        return GeoPHP::geosToGeometry($reader->read($wkt));
       }
     }
     $wkt = str_replace(', ', ',', $wkt);
 
     // For each geometry type, check to see if we have a match at the
     // beginning of the string. If we do, then parse using that type
-    foreach (geoPHP::geometryList() as $geom_type) {
+    foreach (GeoPHP::geometryList() as $geom_type) {
       $wkt_geom = strtoupper($geom_type);
       if (strtoupper(substr($wkt, 0, strlen($wkt_geom))) == $wkt_geom) {
         $data_string = $this->getDataString($wkt);
@@ -209,7 +225,7 @@ class WKT extends GeoAdapter
    */
   public function write(Geometry $geometry) {
     // If geos is installed, then we take a shortcut and let it write the WKT
-    if (geoPHP::geosInstalled()) {
+    if (GeoPHP::geosInstalled()) {
       $writer = new GEOSWKTWriter();
       $writer->setTrim(TRUE);
       return $writer->write($geometry->geos());

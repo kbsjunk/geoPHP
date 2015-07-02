@@ -1,4 +1,10 @@
 <?php
+
+namespace GeoPHP\Adapters;
+
+use GeoPHP\GeoPHP;
+use GeoPHP\Geometry\Geometry;
+
 /*
  * (c) Patrick Hayes 2011
  *

@@ -1,4 +1,19 @@
 <?php
+
+namespace GeoPHP\Adapters;
+
+use GeoPHP\GeoPHP;
+use GeoPHP\Geometry\Geometry;
+use GeoPHP\Geometry\GeometryCollection;
+use GeoPHP\Geometry\Point;
+use GeoPHP\Geometry\MultiPoint;
+use GeoPHP\Geometry\Polygon;
+use GeoPHP\Geometry\MultiPolygon;
+use GeoPHP\Geometry\LineString;
+use GeoPHP\Geometry\MultiLineString;
+
+use Exception;
+
 /*
  * (c) Camptocamp <info@camptocamp.com>
  * (c) Patrick Hayes

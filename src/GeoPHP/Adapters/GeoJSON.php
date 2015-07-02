@@ -1,4 +1,19 @@
 <?php
+
+namespace GeoPHP\Adapters;
+
+use GeoPHP\GeoPHP;
+use GeoPHP\Geometry\Geometry;
+use GeoPHP\Geometry\GeometryCollection;
+use GeoPHP\Geometry\Point;
+use GeoPHP\Geometry\MultiPoint;
+use GeoPHP\Geometry\Polygon;
+use GeoPHP\Geometry\MultiPolygon;
+use GeoPHP\Geometry\LineString;
+use GeoPHP\Geometry\MultiLineString;
+
+use Exception;
+
 /**
  * GeoJSON class : a geojson reader/writer.
  *
@@ -32,7 +47,7 @@ class GeoJSON extends GeoAdapter
       foreach ($input->features as $feature) {
         $geoms[] = $this->read($feature);
       }
-      return geoPHP::geometryReduce($geoms);
+      return GeoPHP::geometryReduce($geoms);
     }
 
     // Check to see if it's a Feature

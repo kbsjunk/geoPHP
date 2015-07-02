@@ -1,4 +1,8 @@
 <?php
+
+namespace GeoPHP\Geometry;
+
+use GeoPHP\GeoPHP;
 /**
  * MultiLineString: A collection of LineStrings
  */

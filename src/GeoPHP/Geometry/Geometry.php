@@ -1,5 +1,9 @@
 <?php
 
+namespace GeoPHP\Geometry;
+
+use GeoPHP\GeoPHP;
+
 /**
  * Geometry abstract class
  */

@@ -1,4 +1,13 @@
 <?php
+
+namespace GeoPHP\Adapters;
+
+use GeoPHP\GeoPHP;
+use GeoPHP\Geometry\Geometry;
+use GeoPHP\Geometry\Point;
+use GeoPHP\Geometry\Polygon;
+use GeoPHP\Geometry\LineString;
+
 /**
  * PHP Geometry GeoHash encoder/decoder.
  *
@@ -6,7 +15,8 @@
  * @see http://en.wikipedia.org/wiki/Geohash
  *
  */
-class GeoHash extends GeoAdapter{
+class GeoHash extends GeoAdapter
+{
 
   /**
    * base32 encoding character map.
