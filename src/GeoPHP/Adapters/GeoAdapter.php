@@ -21,14 +21,14 @@ use GeoPHP\Geometry\Geometry;
 abstract class GeoAdapter
 {
   /**
-   * Read input and return a Geomtry or GeometryCollection
+   * Read input and return a Geometry or GeometryCollection
    * 
    * @return Geometry|GeometryCollection
    */
   abstract public function read($input);
   
   /**
-   * Write out a Geomtry or GeometryCollection in the adapter's format
+   * Write out a Geometry or GeometryCollection in the adapter's format
    * 
    * @return mixed
    */
