@@ -91,7 +91,7 @@ class GeoPHP
       $args = $format;
     }
 
-    $processor_type = $type_map[$type];
+    $processor_type = 'GeoPHP\\Adapters\\'.$type_map[$type];
 
     if (!$processor_type) {
       throw new Exception('GeoPHP could not find an adapter of type '.htmlentities($type));
