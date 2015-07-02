@@ -3,6 +3,7 @@
 namespace GeoPHP\Geometry;
 
 use GeoPHP\GeoPHP;
+use Exception;
 
 /**
  * Collection: Abstract class for compound geometries
@@ -68,7 +69,7 @@ abstract class Collection extends Geometry
     if ($this->geos()) {
       $geos_centroid = $this->geos()->centroid();
       if ($geos_centroid->typeName() == 'Point') {
-        return geoPHP::geosToGeometry($this->geos()->centroid());
+        return GeoPHP::geosToGeometry($this->geos()->centroid());
       }
     }
 
@@ -86,7 +87,7 @@ abstract class Collection extends Geometry
     if ($this->geos()) {
       $envelope = $this->geos()->envelope();
       if ($envelope->typeName() == 'Point') {
-        return geoPHP::geosToGeometry($envelope)->getBBOX();
+        return GeoPHP::geosToGeometry($envelope)->getBBOX();
       }
 
       $geos_ring = $envelope->exteriorRing();
@@ -159,7 +160,7 @@ abstract class Collection extends Geometry
     foreach ($this->components as $component) {
       $components_boundaries[] = $component->boundary();
     }
-    return geoPHP::geometryReduce($components_boundaries);
+    return GeoPHP::geometryReduce($components_boundaries);
   }
 
   public function numGeometries() {

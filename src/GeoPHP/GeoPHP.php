@@ -91,7 +91,7 @@ class GeoPHP
       $args = $format;
     }
 
-    $processor_type = 'GeoPHP\\Adapters\\'.$type_map[$type];
+    $processor_type = $type_map[$type];
 
     if (!$processor_type) {
       throw new Exception('GeoPHP could not find an adapter of type '.htmlentities($type));
@@ -117,29 +117,29 @@ class GeoPHP
 
   static function getAdapterMap() {
     return array (
-      'wkt'            => 'WKT',
-      'ewkt'           => 'EWKT',
-      'wkb'            => 'WKB',
-      'ewkb'           => 'EWKB',
-      'json'           => 'GeoJSON',
-      'geojson'        => 'GeoJSON',
-      'kml'            => 'KML',
-      'gpx'            => 'GPX',
-      'georss'         => 'GeoRSS',
-      'google_geocode' => 'GoogleGeocode',
-      'geohash'        => 'GeoHash',
+      'wkt'            => 'GeoPHP\\Adapters\\WKT',
+      'ewkt'           => 'GeoPHP\\Adapters\\EWKT',
+      'wkb'            => 'GeoPHP\\Adapters\\WKB',
+      'ewkb'           => 'GeoPHP\\Adapters\\EWKB',
+      'json'           => 'GeoPHP\\Adapters\\GeoJSON',
+      'geojson'        => 'GeoPHP\\Adapters\\GeoJSON',
+      'kml'            => 'GeoPHP\\Adapters\\KML',
+      'gpx'            => 'GeoPHP\\Adapters\\GPX',
+      'georss'         => 'GeoPHP\\Adapters\\GeoRSS',
+      'google_geocode' => 'GeoPHP\\Adapters\\GoogleGeocode',
+      'geohash'        => 'GeoPHP\\Adapters\\GeoHash',
     );
   }
 
   static function geometryList() {
     return array(
-      'point'              => 'Point',
-      'linestring'         => 'LineString',
-      'polygon'            => 'Polygon',
-      'multipoint'         => 'MultiPoint',
-      'multilinestring'    => 'MultiLineString',
-      'multipolygon'       => 'MultiPolygon',
-      'geometrycollection' => 'GeometryCollection',
+      'point'              => 'GeoPHP\\Geometry\\Point',
+      'linestring'         => 'GeoPHP\\Geometry\\LineString',
+      'polygon'            => 'GeoPHP\\Geometry\\Polygon',
+      'multipoint'         => 'GeoPHP\\Geometry\\MultiPoint',
+      'multilinestring'    => 'GeoPHP\\Geometry\\MultiLineString',
+      'multipolygon'       => 'GeoPHP\\Geometry\\MultiPolygon',
+      'geometrycollection' => 'GeoPHP\\Geometry\\GeometryCollection',
     );
   }
 
