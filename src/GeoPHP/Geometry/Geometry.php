@@ -4,6 +4,8 @@ namespace GeoPHP\Geometry;
 
 use GeoPHP\GeoPHP;
 
+use GEOSWKBReader;
+
 /**
  * Geometry abstract class
  */
@@ -93,7 +95,7 @@ abstract class Geometry
 
     $format = array_shift($args);
     $type_map = GeoPHP::getAdapterMap();
-    $processor_type = $type_map[$format];
+    $processor_type = 'GeoPHP\\Adapters\\'.$type_map[$format];
     $processor = new $processor_type();
 
     array_unshift($args, $this);

@@ -68,7 +68,7 @@ class GeoPHP
       $args = $format;
     }
 
-    $processor_type = $type_map[$type];
+    $processor_type = 'GeoPHP\\Adapters\\'.$type_map[$type];
 
     if (!$processor_type) {
       throw new Exception('GeoPHP could not find an adapter of type '.htmlentities($type));
@@ -94,17 +94,17 @@ class GeoPHP
 
   static function getAdapterMap() {
     return array (
-      'wkt'            => 'GeoPHP\\Adapters\\WKT',
-      'ewkt'           => 'GeoPHP\\Adapters\\EWKT',
-      'wkb'            => 'GeoPHP\\Adapters\\WKB',
-      'ewkb'           => 'GeoPHP\\Adapters\\EWKB',
-      'json'           => 'GeoPHP\\Adapters\\GeoJSON',
-      'geojson'        => 'GeoPHP\\Adapters\\GeoJSON',
-      'kml'            => 'GeoPHP\\Adapters\\KML',
-      'gpx'            => 'GeoPHP\\Adapters\\GPX',
-      'georss'         => 'GeoPHP\\Adapters\\GeoRSS',
-      'google_geocode' => 'GeoPHP\\Adapters\\GoogleGeocode',
-      'geohash'        => 'GeoPHP\\Adapters\\GeoHash',
+      'wkt'            => 'WKT',
+      'ewkt'           => 'EWKT',
+      'wkb'            => 'WKB',
+      'ewkb'           => 'EWKB',
+      'json'           => 'GeoJSON',
+      'geojson'        => 'GeoJSON',
+      'kml'            => 'KML',
+      'gpx'            => 'GPX',
+      'georss'         => 'GeoRSS',
+      'google_geocode' => 'GoogleGeocode',
+      'geohash'        => 'GeoHash',
     );
   }
 
@@ -213,7 +213,7 @@ class GeoPHP
         return $geometries[0];
       }
       else {
-        $class = 'Multi'.$geom_types[0];
+        $class = 'GeoPHP\\Geometry\\Multi'.$geom_types[0];
         return new $class($geometries);
       }
     }
